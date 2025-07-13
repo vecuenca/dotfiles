@@ -5,6 +5,7 @@ Dotfiles for:
 - neovim
 - tmux
 - zsh
+- ghostty
 
 ```
 ln -s ~/dev/dotfiles/nvim ~/.config/nvim
