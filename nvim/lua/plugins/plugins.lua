@@ -11,7 +11,7 @@ return {
         flavour = "auto", -- latte, frappe, macchiato, mocha
         background = { -- :h background
           light = "latte",
-          dark = "frappe",
+          dark = "mocha",
         },
       })
     end,
