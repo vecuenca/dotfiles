@@ -10,6 +10,7 @@ Dotfiles for:
 ln -s ~/dev/dotfiles/nvim ~/.config/nvim
 ln -s ~/dev/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dev/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dev/dotfiles/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 ```
 
 ```
