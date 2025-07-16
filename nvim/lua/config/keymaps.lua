@@ -31,3 +31,22 @@ vim.keymap.set(
   ':let @+ = expand("%:t")<cr>',
   { silent = false, desc = "Yank filename without the path" }
 )
+
+vim.keymap.set("v", "<leader>r", function()
+  vim.cmd('normal! "ry')
+  vim.cmd([[normal! \<Esc>]])
+
+  local text = vim.fn.getreg("r")
+  text = text:gsub("\n", " ")
+
+  local puts = 'IO.puts("\\n\\n<<<<< ' .. text .. '\\n\\n")'
+  local putt = string.format("IO.inspect(%s, limit: :infinity, pretty: true, structs: false)", text)
+  local pute = 'IO.puts("\\n\\n>>>>> ' .. text .. '\\n\\n")'
+
+  vim.api.nvim_put({ puts }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ putt }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ pute }, "l", true, true)
+  vim.cmd("normal! k")
+end, { silent = true, desc = "Elixir IO debug selection" })
