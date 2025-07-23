@@ -8,7 +8,8 @@ return {
         selection_caret = " ",
         path_display = { "smart" },
         dynamic_preview_title = true,
-        winblend = 10,
+        -- controls transparency
+        winblend = 0,
         sorting_strategy = "ascending",
         layout_strategy = "vertical",
         layout_config = {

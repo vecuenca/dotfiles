@@ -1,83 +1,121 @@
 return {
   {
-    "catppuccin/nvim",
+    "neanias/everforest-nvim",
+    version = false,
     lazy = false,
-    priority = 1000, -- load first
-    name = "catppuccin",
-    -- you can do it like this with a config function
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
     config = function()
-      require("catppuccin").setup({
-        -- configurations
-        flavour = "auto", -- latte, frappe, macchiato, mocha
-        background = { -- :h background
-          light = "latte",
-          dark = "frappe",
-        },
+      require("everforest").setup({
+        background = "hard", -- or "medium" or "soft"
+        transparent_background_level = 2, -- enable transparency
       })
+      vim.cmd.colorscheme("everforest")
+
+      -- -- Function to apply transparency
+      -- local function apply_transparency()
+      --   local transparent_groups = {
+      --     "Normal",
+      --     "NormalNC",
+      --     "NormalFloat",
+      --     "FloatBorder",
+      --     "TelescopeNormal",
+      --     "TelescopeBorder",
+      --     "TelescopePromptNormal",
+      --     "TelescopeResultsNormal",
+      --     "TelescopePreviewNormal",
+      --     "TelescopePromptBorder",
+      --     "TelescopeResultsBorder",
+      --     "TelescopePreviewBorder",
+      --     "TelescopeTitle",
+      --     "TelescopePromptTitle",
+      --     "TelescopePreviewTitle",
+      --     "TelescopeResultsTitle",
+      --     "SignColumn",
+      --     "EndOfBuffer",
+      --     "StatusLine",
+      --     "StatusLineNC",
+      --     "LineNr",
+      --     "CursorLineNr",
+      --     "Pmenu",
+      --     "PmenuSel",
+      --     "PmenuSbar",
+      --     "PmenuThumb",
+      --     "TabLine",
+      --     "TabLineFill",
+      --     "TabLineSel",
+      --     "WinSeparator",
+      --     "VertSplit",
+      --   }
+      --
+      --   for _, group in ipairs(transparent_groups) do
+      --     vim.api.nvim_set_hl(0, group, { bg = "none" })
+      --   end
+      -- end
+      --
+      -- -- Apply transparency immediately
+      -- apply_transparency()
+      --
+      -- -- Also apply after colorscheme changes
+      -- vim.api.nvim_create_autocmd("ColorScheme", {
+      --   callback = apply_transparency,
+      -- })
+      --
+      -- -- Force telescope transparency after it loads
+      -- vim.api.nvim_create_autocmd("User", {
+      --   pattern = "LazyLoad",
+      --   callback = function(args)
+      --     if args.data == "telescope.nvim" then
+      --       vim.schedule(function()
+      --         -- Force clear all telescope backgrounds
+      --         local telescope_groups = vim.fn.getcompletion("Telescope", "highlight")
+      --         for _, group in ipairs(telescope_groups) do
+      --           vim.api.nvim_set_hl(0, group, { bg = "none" })
+      --         end
+      --       end)
+      --     end
+      --   end,
+      -- })
+      --
+      -- -- Also try when telescope actually opens
+      -- vim.api.nvim_create_autocmd("FileType", {
+      --   pattern = "TelescopePrompt",
+      --   callback = function()
+      --     vim.schedule(function()
+      --       apply_transparency()
+      --     end)
+      --   end,
+      -- })
     end,
   },
+  -- {
+  --   "catppuccin/nvim",
+  --   lazy = false,
+  --   priority = 1000, -- load first
+  --   name = "catppuccin",
+  --   -- you can do it like this with a config function
+  --   config = function()
+  --     require("catppuccin").setup({
+  --       -- configurations
+  --       flavour = "auto", -- latte, frappe, macchiato, mocha
+  --       background = { -- :h background
+  --         light = "latte",
+  --         dark = "macchiato",
+  --       },
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "dgox16/oldworld.nvim",
+  --   lazy = false,
+  --   priority = 10001,
+  -- },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "everforest",
+      -- colorscheme = "catppuccin",
+      -- colorscheme = "oldworld",
     },
   },
-  -- {
-  --   -- A dummy plugin entry just to add our toggle command
-  --   -- "LazyVim/LazyVim" is used here to attach config logic
-  --   "LazyVim/LazyVim",
-  --   lazy = false,
-  --   config = function()
-  --     vim.api.nvim_create_user_command("ToggleTheme", function()
-  --       local bg = vim.o.background == "dark" and "light" or "dark"
-  --       vim.o.background = bg
-  --       require("catppuccin").load()
-  --     end, {})
-  --   end,
-  -- },
 }
--- return {
---   {
---     "catppuccin/nvim",
---     name = "catppuccin",
---     lazy = false,
---     priority = 1000, -- load first
---     config = function()
---       -- Check if system is in dark mode (macOS)
---       local is_dark = vim.fn.system(
---         [[defaults read -g AppleInterfaceStyle 2>/dev/null]]
---       ):match("Dark") ~= nil
---
---       vim.o.background = is_dark and "dark" or "light"
---
---       require("catppuccin").setup({
---         flavour = is_dark and "frappe" or "latte",
---         background = {
---           light = "latte",
---           dark = "frappe",
---         },
---       })
---
---       vim.cmd.colorscheme("catppuccin")
---     end,
---   },
---
---   {
---     -- Add the manual theme toggle command
---     "LazyVim/LazyVim",
---     lazy = false,
---     config = function()
---       vim.api.nvim_create_user_command("ToggleTheme", function()
---         local is_dark = vim.o.background == "dark"
---         vim.o.background = is_dark and "light" or "dark"
---
---         require("catppuccin").setup({
---           flavour = is_dark and "latte" or "frappe",
---         })
---
---         vim.cmd.colorscheme("catppuccin")
---       end, {})
---     end,
---   },
--- }
---
