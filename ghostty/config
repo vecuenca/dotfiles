@@ -1,3 +1,4 @@
-font-family = "Monaspace Argon"
+font-family = "CaskaydiaCove Nerd Font"
 font-size = 18
-theme = dark:catppuccin-frappe,light:catppuccin-latte
+theme = dark:everforest-dark-medium.ghostty,light:catppuccin-latte
+background-opacity = 0.93
