@@ -50,3 +50,28 @@ vim.keymap.set("v", "<leader>r", function()
   vim.api.nvim_put({ pute }, "l", true, true)
   vim.cmd("normal! k")
 end, { silent = true, desc = "Elixir IO debug selection" })
+
+vim.keymap.set("v", "<leader>R", function()
+  vim.cmd('normal! "ry')
+  vim.cmd([[normal! \<Esc>]])
+
+  local text = vim.fn.getreg("r")
+  text = text:gsub("\n", " ")
+
+  local putf = "|> (fn x ->"
+  local puts = 'IO.puts("\\n\\n<<<<< ' .. text .. '\\n\\n")'
+  local putt = "IO.inspect(x, limit: :infinity, pretty: true, structs: false)"
+  local pute = 'IO.puts("\\n\\n>>>>> ' .. text .. '\\n\\n")'
+  local putfe = "x end).()"
+
+  vim.api.nvim_put({ putf }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ puts }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ putt }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ pute }, "l", true, true)
+  vim.cmd("normal! k")
+  vim.api.nvim_put({ putfe }, "l", true, true)
+  vim.cmd("normal! k")
+end, { silent = true, desc = "Elixir pipe debug selection" })
