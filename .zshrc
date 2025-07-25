@@ -12,7 +12,7 @@ alias elixir_clean='rm -rf .elixir_ls _build mix.lock && mix deps.get'
 alias phx.server='iex -S mix phx.server'
 
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# The most imporatnt thing
+# The most important thing
 alias vim="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -142,19 +142,12 @@ if [ -f '/Users/vincent.cuenca/Downloads/google-cloud-sdk/completion.zsh.inc' ];
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-
-
 source ~/.iterm2_shell_integration.zsh
 
-
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# Enable vi mode
+bindkey -v
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
