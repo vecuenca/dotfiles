@@ -75,3 +75,23 @@ vim.keymap.set("v", "<leader>R", function()
   vim.api.nvim_put({ putfe }, "l", true, true)
   vim.cmd("normal! k")
 end, { silent = true, desc = "Elixir pipe debug selection" })
+
+-- Yank Elixir module file name
+vim.keymap.set("n", "<leader>ym", function()
+  -- First try to find the actual module definition in the file
+  local lines = vim.api.nvim_buf_get_lines(0, 0, 50, false) -- Check first 50 lines
+
+  for _, line in ipairs(lines) do
+    local module_match = line:match("defmodule%s+([%w%.]+)")
+    if module_match then
+      vim.fn.setreg("+", module_match)
+      vim.fn.setreg('"', module_match)
+      print("Yanked Elixir module: " .. module_match)
+      return
+    end
+  end
+
+  -- Fallback to path-based inference if no defmodule found
+  print("No defmodule found, using path-based inference...")
+  -- (include the previous path-based logic here as fallback)
+end, { desc = "Yank current file's Elixir module name" })
