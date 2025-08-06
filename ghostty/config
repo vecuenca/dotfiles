@@ -1,8 +1,8 @@
 font-family = "CaskaydiaCove Nerd Font"
 font-size = 18
-theme = dark:everforest-dark-medium.ghostty,light:catppuccin-latte
+theme = dark:zenbones_dark,light:zenbones_light
 auto-update-channel = tip
 background-opacity = 0.93
 background-image = ~/Downloads/windows-xp.jpg
-background-image-opacity = 0.1
+background-image-opacity = 0
 background-image-fit = cover
