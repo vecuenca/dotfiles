@@ -144,7 +144,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source ~/.iterm2_shell_integration.zsh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Enable vi mode
 bindkey -v
