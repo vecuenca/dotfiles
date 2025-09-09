@@ -13,7 +13,7 @@ alias phx.server='iex -S mix phx.server'
 
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # The most important thing
-alias vim="nvim"
+# alias vim="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -128,6 +128,23 @@ export PATH="$PATH:/Users/vincent.cuenca/.asdf/bin"
 
 eval "$(direnv hook zsh)"
 
+# Smart tmux window naming
+
+
+vim() {
+    if [[ -n $TMUX ]]; then
+        local project_name
+        if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+            project_name=$(basename $(git rev-parse --show-toplevel))
+        else
+            project_name=$(basename $(pwd))
+        fi
+        tmux rename-window "$project_name"
+    fi
+    
+    # Call the original alias by using \vim to bypass the function
+    nvim "$@"
+}
 
 
 
