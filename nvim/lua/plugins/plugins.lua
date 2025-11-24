@@ -26,38 +26,40 @@ return {
       -- vim.g.zenbones_darken_comments = 45
       vim.g.zenbones_transparent_background = true
       vim.cmd.colorscheme("zenbones")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
-  -- {
-  --   "catppuccin/nvim",
-  --   lazy = false,
-  --   priority = 1000, -- load first
-  --   name = "catppuccin",
-  --   -- you can do it like this with a config function
-  --   config = function()
-  --     require("catppuccin").setup({
-  --       -- configurations
-  --       flavour = "auto", -- latte, frappe, macchiato, mocha
-  --       background = { -- :h background
-  --         light = "latte",
-  --         dark = "macchiato",
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000, -- load first
+    name = "catppuccin",
+    -- you can do it like this with a config function
+    config = function()
+      require("catppuccin").setup({
+        -- configurations
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        background = { -- :h background
+          light = "latte",
+          dark = "frappe",
+        },
+        transparent_background = true,
+      })
+    end,
+  },
   -- {
   --   "dgox16/oldworld.nvim",
   --   lazy = false,
   --   priority = 10001,
   -- },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "zenbones",
-
-      -- colorscheme = "everforest",
-      -- colorscheme = "catppuccin",
-      -- colorscheme = "oldworld",
-    },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     -- colorscheme = "zenbones",
+  --
+  --     -- colorscheme = "everforest",
+  --     colorscheme = "catppuccin",
+  --     -- colorscheme = "oldworld",
+  --   },
+  -- },
 }
