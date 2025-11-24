@@ -10,6 +10,8 @@ fi
 
 alias elixir_clean='rm -rf .elixir_ls _build mix.lock && mix deps.get'
 alias phx.server='iex -S mix phx.server'
+alias deps.get='mix deps.get'
+alias failed='mix test --failed'
 
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # The most important thing
