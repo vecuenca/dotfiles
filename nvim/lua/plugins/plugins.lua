@@ -13,22 +13,21 @@ return {
   --     vim.opt.background = "light"
   --   end,
   -- },
-  {
-    "zenbones-theme/zenbones.nvim",
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
-    -- you can set set configuration options here
-    config = function()
-      -- vim.g.zenbones_darken_comments = 45
-      vim.g.zenbones_transparent_background = true
-      vim.cmd.colorscheme("zenbones")
-      vim.cmd.colorscheme("catppuccin")
-    end,
-  },
+  -- {
+  --   "zenbones-theme/zenbones.nvim",
+  --   -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+  --   -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+  --   -- In Vim, compat mode is turned on as Lush only works in Neovim.
+  --   dependencies = "rktjmp/lush.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   -- you can set set configuration options here
+  --   config = function()
+  --     -- vim.g.zenbones_darken_comments = 45
+  --     vim.g.zenbones_transparent_background = true
+  --     -- vim.cmd.colorscheme("zenbones")
+  --   end,
+  -- },
   {
     "catppuccin/nvim",
     lazy = false,
@@ -38,13 +37,15 @@ return {
     config = function()
       require("catppuccin").setup({
         -- configurations
-        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        flavour = "frappe", -- latte, frappe, macchiato, mocha
         background = { -- :h background
           light = "latte",
           dark = "frappe",
         },
         transparent_background = true,
       })
+      vim.cmd.colorscheme("catppuccin")
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "#a5adce", bold = true })
     end,
   },
   -- {
