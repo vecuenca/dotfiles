@@ -11,6 +11,7 @@ fi
 alias elixir_clean='rm -rf .elixir_ls _build mix.lock && mix deps.get'
 alias phx.server='mix deps.get; iex -S mix phx.server'
 alias deps.get='mix deps.get'
+alias ci='mix deps.get; mix ci'
 alias failed='mix test --failed'
 
 
