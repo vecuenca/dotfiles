@@ -1,9 +1,9 @@
 font-family = "CaskaydiaCove Nerd Font"
 font-size = 16
-theme = dark:Zenbones Dark,light:Zenbones Light
- theme = dark:Catppuccin Frappe,light:Zenbones Light
+theme = dark:Rose Pine Moon,light:Zenbones Light
 auto-update-channel = tip
 background-opacity = 0.93
-background-image = ~/Downloads/windows-xp.jpg
+# background-image = ~/Downloads/windows-xp.jpg
 background-image-opacity = 0.15
 background-image-fit = cover
+# background-blur = macos-glass-regular
