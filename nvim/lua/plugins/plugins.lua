@@ -95,7 +95,9 @@ return {
           TelescopeResultsTitle = { fg = "base", bg = "pine" },
         },
       })
-      vim.cmd.colorscheme("rose-pine-moon")
+      -- vim.cmd.colorscheme("rose-pine-dawn")
+      -- vim.cmd.colorscheme("catppuccin-frappe")
+      vim.cmd.colorscheme("zenbones")
     end,
   },
   {
@@ -114,8 +116,6 @@ return {
         },
         transparent_background = true,
       })
-      -- vim.cmd.colorscheme("zenbones")
-      -- vim.cmd.colorscheme("catppuccin-frappe")
       vim.api.nvim_set_hl(0, "LineNr", { fg = "#a5adce", bold = true })
     end,
   },
