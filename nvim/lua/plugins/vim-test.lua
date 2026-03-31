@@ -34,7 +34,7 @@ return {
     config = function()
       -- Test strategy: where to run tests
       -- Options: 'neovim', 'vimux', 'dispatch', 'basic', 'floaterm'
-      vim.g["test#strategy"] = "vimux"
+      vim.g["test#strategy"] = "neovim"
     end,
   },
   -- Add other testing-related plugins here if you have them, e.g., nvim-neotest
