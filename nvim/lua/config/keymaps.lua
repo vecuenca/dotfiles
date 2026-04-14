@@ -95,3 +95,8 @@ vim.keymap.set("n", "<leader>ym", function()
   print("No defmodule found, using path-based inference...")
   -- (include the previous path-based logic here as fallback)
 end, { desc = "Yank current file's Elixir module name" })
+
+if vim.fn.getenv("TERM_PROGRAM") == "ghostty" then
+  vim.opt.title = true
+  vim.opt.titlestring = "%{fnamemodify(getcwd(), ':t')}"
+end
